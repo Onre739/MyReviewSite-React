@@ -1,0 +1,336 @@
+---------------------------------------------------- game_platform --------------------------------------------------------------------
+-- game_platform records (without id, with UNIX timestamp in milliseconds)
+INSERT INTO game_platform (game_id, platform_id, release_date) VALUES
+-- PC releases
+(1, 1, 1100563200000),   -- Half-Life 2 - PC (2004-11-16)
+(2, 1, 1431993600000),   -- The Witcher 3 - PC (2015-05-19)
+(3, 1, 1572912000000),   -- Red Dead Redemption 2 - PC (2019-11-05)
+(4, 1, 1604966400000),   -- Assassin's Creed Valhalla - PC (2020-11-10)
+(5, 1, 1320969600000),   -- The Elder Scrolls V: Skyrim - PC (2011-11-11)
+(6, 1, 1460419200000),   -- Dark Souls III - PC (2016-04-12)
+(7, 1, 1637280000000),   -- Battlefield 2042 - PC (2021-11-19)
+(8, 1, 1645747200000),   -- Elden Ring - PC (2022-02-25)
+(9, 1, 1607558400000),   -- Cyberpunk 2077 - PC (2020-12-10)
+(10, 1, 1428969600000),  -- Grand Theft Auto V - PC (2015-04-14)
+(11, 1, 1633564800000),  -- Far Cry 6 - PC (2021-10-07)
+(12, 1, 1584662400000),  -- Doom Eternal - PC (2020-03-20)
+(13, 1, 1553212800000),  -- Sekiro: Shadows Die Twice - PC (2019-03-22)
+(14, 1, 1620950400000),  -- Mass Effect Legendary Edition - PC (2021-05-14)
+(15, 1, 1693958400000),  -- Starfield - PC (2023-09-06)
+
+-- PlayStation 5 releases
+(2, 2, 1670976000000),  -- The Witcher 3 - PS5 (2022-12-14)
+(3, 2, 1668124800000),  -- Red Dead Redemption 2 - PS5 (2022-11-11)
+(4, 2, 1604966400000),  -- Assassin's Creed Valhalla - PS5 (2020-11-10)
+(6, 2, 1647302400000),  -- Dark Souls III - PS5 (2022-03-15)
+(7, 2, 1637280000000),  -- Battlefield 2042 - PS5 (2021-11-19)
+(8, 2, 1645747200000),  -- Elden Ring - PS5 (2022-02-25)
+(9, 2, 1644883200000),  -- Cyberpunk 2077 - PS5 (2022-02-15)
+(10, 2, 1647302400000), -- Grand Theft Auto V - PS5 (2022-03-15)
+(11, 2, 1633564800000), -- Far Cry 6 - PS5 (2021-10-07)
+(12, 2, 1624924800000), -- Doom Eternal - PS5 (2021-06-29)
+(13, 2, 1603843200000), -- Sekiro: Shadows Die Twice - PS5 (2020-10-28)
+(14, 2, 1620950400000), -- Mass Effect Legendary Edition - PS5 (2021-05-14)
+(15, 2, 1693958400000), -- Starfield - PS5 (2023-09-06)
+
+-- Xbox Series X releases
+(2, 3, 1670976000000),  -- The Witcher 3 - Xbox Series X (2022-12-14)
+(3, 3, 1668124800000),  -- Red Dead Redemption 2 - Xbox Series X (2022-11-11)
+(4, 3, 1604966400000),  -- Assassin's Creed Valhalla - Xbox Series X (2020-11-10)
+(6, 3, 1647302400000),  -- Dark Souls III - Xbox Series X (2022-03-15)
+(7, 3, 1637280000000),  -- Battlefield 2042 - Xbox Series X (2021-11-19)
+(8, 3, 1645747200000),  -- Elden Ring - Xbox Series X (2022-02-25)
+(9, 3, 1644883200000),  -- Cyberpunk 2077 - Xbox Series X (2022-02-15)
+(10, 3, 1647302400000), -- Grand Theft Auto V - Xbox Series X (2022-03-15)
+(11, 3, 1633564800000), -- Far Cry 6 - Xbox Series X (2021-10-07)
+(12, 3, 1624924800000), -- Doom Eternal - Xbox Series X (2021-06-29)
+(13, 3, 1603843200000), -- Sekiro: Shadows Die Twice - Xbox Series X (2020-10-28)
+(14, 3, 1620950400000), -- Mass Effect Legendary Edition - Xbox Series X (2021-05-14)
+(15, 3, 1693958400000), -- Starfield - Xbox Series X (2023-09-06)
+
+-- Nintendo Switch releases
+(2, 4, 1571097600000),  -- The Witcher 3 - Nintendo Switch (2019-10-15)
+(5, 4, 1510876800000),  -- The Elder Scrolls V: Skyrim - Nintendo Switch (2017-11-17)
+(12, 4, 1607385600000), -- Doom Eternal - Nintendo Switch (2020-12-08)
+
+-- PlayStation 4 releases
+(2, 5, 1431993600000),  -- The Witcher 3 - PS4 (2015-05-19)
+(3, 5, 1540512000000),  -- Red Dead Redemption 2 - PS4 (2018-10-26)
+(4, 5, 1604966400000),  -- Assassin's Creed Valhalla - PS4 (2020-11-10)
+(5, 5, 1477612800000),  -- The Elder Scrolls V: Skyrim - PS4 (2016-10-28)
+(6, 5, 1458777600000),  -- Dark Souls III - PS4 (2016-03-24)
+(7, 5, 1637280000000),  -- Battlefield 2042 - PS4 (2021-11-19)
+(9, 5, 1607558400000),  -- Cyberpunk 2077 - PS4 (2020-12-10)
+(10, 5, 1416268800000), -- Grand Theft Auto V - PS4 (2014-11-18)
+(11, 5, 1633564800000), -- Far Cry 6 - PS4 (2021-10-07)
+(12, 5, 1584662400000), -- Doom Eternal - PS4 (2020-03-20)
+(13, 5, 1553212800000), -- Sekiro: Shadows Die Twice - PS4 (2019-03-22)
+(14, 5, 1620950400000), -- Mass Effect Legendary Edition - PS4 (2021-05-14)
+
+-- Xbox One releases
+(2, 6, 1431993600000),  -- The Witcher 3 - Xbox One (2015-05-19)
+(3, 6, 1540512000000),  -- Red Dead Redemption 2 - Xbox One (2018-10-26)
+(4, 6, 1604966400000),  -- Assassin's Creed Valhalla - Xbox One (2020-11-10)
+(5, 6, 1477612800000),  -- The Elder Scrolls V: Skyrim - Xbox One (2016-10-28)
+(6, 6, 1458777600000),  -- Dark Souls III - Xbox One (2016-03-24)
+(7, 6, 1637280000000),  -- Battlefield 2042 - Xbox One (2021-11-19)
+(9, 6, 1607558400000),  -- Cyberpunk 2077 - Xbox One (2020-12-10)
+(10, 6, 1416268800000), -- Grand Theft Auto V - Xbox One (2014-11-18)
+(11, 6, 1633564800000), -- Far Cry 6 - Xbox One (2021-10-07)
+(12, 6, 1584662400000), -- Doom Eternal - Xbox One (2020-03-20)
+(13, 6, 1553212800000), -- Sekiro: Shadows Die Twice - Xbox One (2019-03-22)
+(14, 6, 1620950400000), -- Mass Effect Legendary Edition - Xbox One (2021-05-14)
+
+-- Steam Deck releases (same as PC release dates)
+(1, 7, 1100563200000),   -- Half-Life 2 - Steam Deck (2004-11-16)
+(2, 7, 1431993600000),   -- The Witcher 3 - Steam Deck (2015-05-19)
+(3, 7, 1572912000000),   -- Red Dead Redemption 2 - Steam Deck (2019-11-05)
+(4, 7, 1604966400000),   -- Assassin's Creed Valhalla - Steam Deck (2020-11-10)
+(5, 7, 1320969600000),   -- The Elder Scrolls V: Skyrim - Steam Deck (2011-11-11)
+(6, 7, 1460419200000),   -- Dark Souls III - Steam Deck (2016-04-12)
+(7, 7, 1637280000000),   -- Battlefield 2042 - Steam Deck (2021-11-19)
+(8, 7, 1645747200000),   -- Elden Ring - Steam Deck (2022-02-25)
+(9, 7, 1607558400000),   -- Cyberpunk 2077 - Steam Deck (2020-12-10)
+(10, 7, 1428969600000),  -- Grand Theft Auto V - Steam Deck (2015-04-14)
+(11, 7, 1633564800000),  -- Far Cry 6 - Steam Deck (2021-10-07)
+(12, 7, 1584662400000),  -- Doom Eternal - Steam Deck (2020-03-20)
+(13, 7, 1553212800000),  -- Sekiro: Shadows Die Twice - Steam Deck (2019-03-22)
+(14, 7, 1620950400000),  -- Mass Effect Legendary Edition - Steam Deck (2021-05-14)
+(15, 7, 1693958400000);  -- Starfield - Steam Deck (2023-09-06)
+
+---------------------------------------------------- dlc_platform --------------------------------------------------------------------
+-- dlc_platform records (without id, with UNIX timestamp in milliseconds)
+INSERT INTO dlc_platform (dlc_id, platform_id, release_date) VALUES
+-- The Orange Box
+(1, 1, 1191974400000),  -- PC (2007-10-10)
+(1, 5, 1191974400000),  -- PS3 (2007-10-10)
+(1, 6, 1191974400000),  -- Xbox 360 (2007-10-10)
+
+-- Blood and Wine (The Witcher 3)
+(2, 1, 1464652800000),  -- PC (2016-05-31)
+(2, 2, 1464652800000),  -- PS4 (2016-05-31)
+(2, 3, 1464652800000),  -- Xbox One (2016-05-31)
+(2, 4, 1571097600000),  -- Nintendo Switch (2019-10-15)
+
+-- Undead Nightmare (Red Dead Redemption)
+(3, 5, 1288051200000),  -- PS3 (2010-10-26)
+(3, 6, 1288051200000),  -- Xbox 360 (2010-10-26)
+
+-- Dawn of Ragnarok (Assassin's Creed Valhalla)
+(4, 1, 1646870400000),  -- PC (2022-03-10)
+(4, 2, 1646870400000),  -- PS5 (2022-03-10)
+(4, 3, 1646870400000),  -- Xbox Series X (2022-03-10)
+(4, 5, 1646870400000),  -- PS4 (2022-03-10)
+(4, 6, 1646870400000),  -- Xbox One (2022-03-10)
+
+-- Dragonborn (Skyrim)
+(5, 1, 1354579200000),  -- PC (2012-12-04)
+(5, 5, 1354579200000),  -- PS3 (2012-12-04)
+(5, 6, 1354579200000),  -- Xbox 360 (2012-12-04)
+(5, 4, 1510876800000),  -- Nintendo Switch (2017-11-17)
+
+-- Ashes of Ariandel (Dark Souls III)
+(6, 1, 1477353600000),  -- PC (2016-10-25)
+(6, 2, 1477353600000),  -- PS4 (2016-10-25)
+(6, 3, 1477353600000),  -- Xbox One (2016-10-25)
+
+-- Portal 2: Peer Review (Portal 2)
+(7, 1, 1317686400000),  -- PC (2011-10-04)
+(7, 5, 1317686400000),  -- PS3 (2011-10-04)
+(7, 6, 1317686400000),  -- Xbox 360 (2011-10-04)
+
+-- Shadow of the Erdtree (Elden Ring)
+(8, 1, 1718928000000),  -- PC (2024-06-21)
+(8, 2, 1718928000000),  -- PS5 (2024-06-21)
+(8, 3, 1718928000000);  -- Xbox Series X (2024-06-21)
+
+
+---------------------------------------------------- user --------------------------------------------------------------------
+
+INSERT INTO user (email, name, password, role, last_update) VALUES
+-- Admin users
+('admin@myreviewsite.com', 'Admin User', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'admin', 1672531200000),  -- 2023-01-01
+('jane.doe@site.com', 'Jane Doe', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'admin', 1685577600000),  -- 2023-06-01
+
+-- Regular users
+('gamer123@email.com', 'John Smith', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'user', 1669852800000),  -- 2022-12-01
+('rpg_fan@mail.com', 'Emily Johnson', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'user', 1677628800000),  -- 2023-03-01
+('fps_pro@example.com', 'Mike Brown', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'user', 1680307200000),  -- 2023-04-01
+('indie_lover@email.com', 'Sarah Wilson', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'user', 1682899200000),  -- 2023-05-01
+('retro_gamer@mail.com', 'David Lee', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'user', 1685577600000),  -- 2023-06-01
+
+-- Moderators
+('mod.alex@site.com', 'Alex Chen', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'moderator', 1672531200000),  -- 2023-01-01
+('game_master@email.com', 'Jessica Williams', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYV7Z1mAuXvJqB0JQ7qT7b0tFzJQ1C', 'moderator', 1675209600000);  -- 2023-02-01
+
+
+---------------------------------------------------- game_review --------------------------------------------------------------------
+
+-- game_review records (without id, with UNIX timestamps in milliseconds)
+INSERT INTO game_review (numerical_rev, written_rev, recommendation, time, game_platform_id, user_id) VALUES
+-- Reviews for The Witcher 3 (PC)
+(95, 'One of the best RPGs ever made. Incredible storytelling and world-building.', 1, 1635724800000, 2, 3),  -- 2021-11-01
+(90, 'Amazing game but some minor bugs. The Blood and Wine DLC is perfection.', 1, 1638316800000, 2, 4),  -- 2021-12-01
+
+-- Reviews for Elden Ring (PS5)
+(98, 'FromSoftware outdid themselves. The open world works surprisingly well with Souls formula.', 1, 1646092800000, 21, 5),  -- 2022-03-01
+(85, 'Fantastic but sometimes too difficult. The world is breathtaking though.', 1, 1648771200000, 21, 6),  -- 2022-04-01
+
+-- Reviews for Cyberpunk 2077 (PC)
+(70, 'After all the patches, the game is finally good. Still not what was promised though.', 1, 1640995200000, 9, 7),  -- 2022-01-01
+(65, 'Performance is better now but the AI is still lacking. Decent story.', 0, 1643673600000, 9, 3),  -- 2022-02-01
+
+-- Reviews for Red Dead Redemption 2 (Xbox Series X)
+(97, 'The most immersive open world ever created. A true masterpiece.', 1, 1661990400000, 30, 4),  -- 2022-09-01
+(93, 'Amazing attention to detail. The story is slow but rewarding.', 1, 1664582400000, 30, 5),  -- 2022-10-01
+
+-- Reviews for Starfield (PC)
+(88, 'Bethesda does it again. The scope is incredible but some systems feel shallow.', 1, 1694563200000, 15, 6),  -- 2023-09-12
+(75, 'Good but not great. The empty planets hurt the experience.', 1, 1697241600000, 15, 7);  -- 2023-10-15
+
+-- dlc_review records (without id, with UNIX timestamps in milliseconds)
+INSERT INTO dlc_review (numerical_rev, written_rev, recommendation, time, dlc_platform_id, user_id) VALUES
+-- Reviews for Blood and Wine (PC)
+(99, 'Better than most full-price games. Toussaint is magical.', 1, 1467331200000, 2, 3),  -- 2016-07-01
+(97, 'The perfect sendoff for Geralt. The new region is stunning.', 1, 1469923200000, 2, 4),  -- 2016-08-01
+
+-- Reviews for Shadow of the Erdtree (PS5)
+(95, 'Adds so much to the base game. The new legacy dungeons are incredible.', 1, 1719619200000, 8, 5),  -- 2024-06-29
+(90, 'Challenging but fair. The new weapons are game-changers.', 1, 1720300800000, 8, 6),  -- 2024-07-07
+
+-- Reviews for Undead Nightmare (PS3)
+(92, 'One of the best DLCs ever made. The zombie twist works surprisingly well.', 1, 1291161600000, 3, 7),  -- 2010-12-01
+(88, 'Creative take on RDR. The four horses of apocalypse are awesome.', 1, 1293840000000, 3, 3),  -- 2011-01-01
+
+-- Reviews for Dragonborn (Switch)
+(85, 'Skyrim on the go with all DLCs. What more could you want?', 1, 1513555200000, 5, 4),  -- 2017-12-18
+(80, 'Fun expansion but the Switch hardware limits the experience.', 1, 1516233600000, 5, 5);  -- 2018-01-18
+
+
+---------------------------------------------------- news --------------------------------------------------------------------
+
+INSERT INTO news (title, text, img_path, date, user_id) VALUES
+('Elden Ring: Shadow of the Erdtree DLC Announced', 
+'FromSoftware has officially announced the long-awaited DLC expansion for Elden Ring titled "Shadow of the Erdtree". The expansion will introduce new areas, bosses, weapons and story content. Release date is set for June 21, 2024.',
+NULL,
+1704067200000,  -- 2024-01-01
+1),
+
+('Cyberpunk 2077: Phantom Liberty Sales Reach 5 Million', 
+'CD Projekt Red announced that the Phantom Liberty expansion for Cyberpunk 2077 has sold over 5 million copies since its release in September 2023. The expansion and Update 2.0 have brought the game back into spotlight.',
+NULL,
+1706745600000,  -- 2024-02-01
+2),
+
+('Grand Theft Auto VI Officially Announced for 2025', 
+'Rockstar Games has confirmed Grand Theft Auto VI is in development with a planned release in 2025. The trailer revealed the game will return to Vice City and feature the series'' first female protagonist.',
+NULL,
+1709251200000,  -- 2024-03-01
+1),
+
+('Nintendo Announces Switch Successor Console', 
+'Nintendo has confirmed development of a next-generation console to succeed the Switch, planned for release in early 2025. Details are scarce but it promises significant hardware improvements.',
+NULL,
+1711929600000,  -- 2024-04-01
+2),
+
+('Starfield Shatters Bethesda Records with 10 Million Players', 
+'Bethesda''s space RPG Starfield has reached 10 million players across all platforms, making it the company''s biggest launch ever. The Shattered Space expansion is coming later this year.',
+NULL,
+1714521600000,  -- 2024-05-15
+1),
+
+('Sony Acquires Major Game Studio in $2 Billion Deal', 
+'Sony Interactive Entertainment has acquired renowned game developer in a blockbuster deal, expanding its first-party studio lineup. The studio is currently working on an unannounced AAA title.',
+NULL,
+1717200000000,  -- 2024-06-01
+2),
+
+('The Witcher 4 Enters Production Phase', 
+'CD Projekt Red has confirmed that the next Witcher game (codenamed Polaris) has entered full production. The game will use Unreal Engine 5 and begin a new saga in the Witcher universe.',
+NULL,
+1719792000000,  -- 2024-07-01
+1),
+
+('Microsoft Announces New Xbox Exclusive from Obsidian', 
+'Obsidian Entertainment revealed their new RPG "Avowed" will launch exclusively on Xbox Series X/S and PC this November. The game is set in the Pillars of Eternity universe.',
+NULL,
+1722470400000,  -- 2024-08-01
+2),
+
+('PlayStation 5 Pro Specifications Leaked', 
+'Detailed specifications for the rumored PlayStation 5 Pro have surfaced online, suggesting a late 2024 release. The upgraded console reportedly offers significantly improved ray tracing performance.',
+NULL,
+1725148800000,  -- 2024-09-01
+1),
+
+('Ubisoft Delays Skull and Bones Again', 
+'Ubisoft has announced another delay for its pirate game Skull and Bones, pushing the release to early 2025. This marks the sixth delay for the troubled project.',
+NULL,
+1727740800000,  -- 2024-10-01
+2);
+
+-------------------------------------- genre --------------------------------------------------
+-- Žánry (genre)
+INSERT INTO genre (name) VALUES
+('Akční'),
+('RPG'),
+('FPS'),
+('Open-world'),
+('Adventura'),
+('Strategie'),
+('Sportovní'),
+('Horor');
+
+-- Podžánry (sub_genre)
+INSERT INTO sub_genre (name, genre_id) VALUES
+-- Akční
+('Bojové', 1),
+('Plnění mise', 1),
+('Přežití', 1),
+-- RPG
+('Akční RPG', 2),
+('Taktické RPG', 2),
+('Sandbox RPG', 2),
+-- FPS
+('Taktická střílečka', 3),
+('Arena FPS', 3),
+-- Open-world
+('Sandbox', 4),
+('Nelineární příběh', 4),
+-- Adventura
+('Puzzle', 5),
+('Interaktivní příběh', 5);
+
+-- Propojení her a podžánrů (game_sub_genre)
+INSERT INTO game_sub_genre (game_id, sub_genre_id) VALUES
+-- Half-Life 2 (1)
+(1, 3), (1, 7), -- FPS, Přežití
+-- The Witcher 3 (2)
+(2, 4), (2, 9), (2, 11), -- Akční RPG, Sandbox, Interaktivní příběh
+-- Red Dead Redemption 2 (3)
+(3, 2), (3, 9), (3, 11), -- Plnění mise, Sandbox, Interaktivní příběh
+-- Assassin's Creed Valhalla (4)
+(4, 2), (4, 4), (4, 9), -- Plnění mise, Akční RPG, Sandbox
+-- The Elder Scrolls V: Skyrim (5)
+(5, 4), (5, 6), (5, 9), -- Akční RPG, Sandbox RPG, Sandbox
+-- Dark Souls III (6)
+(6, 4), (6, 5), -- Akční RPG, Taktické RPG
+-- Battlefield 2042 (7)
+(7, 7), (7, 8), -- Taktická střílečka, Arena FPS
+-- Elden Ring (8)
+(8, 4), (8, 5), (8, 9), -- Akční RPG, Taktické RPG, Sandbox
+-- Cyberpunk 2077 (9)
+(9, 2), (9, 4), (9, 9), -- Plnění mise, Akční RPG, Sandbox
+-- Grand Theft Auto V (10)
+(10, 1), (10, 9), (10, 12), -- Bojové, Sandbox, Puzzle
+-- Far Cry 6 (11)
+(11, 2), (11, 3), (11, 7), -- Plnění mise, Přežití, Taktická střílečka
+-- Doom Eternal (12)
+(12, 7), (12, 8), -- Taktická střílečka, Arena FPS
+-- Sekiro: Shadows Die Twice (13)
+(13, 1), (13, 4), -- Bojové, Akční RPG
+-- Mass Effect Legendary Edition (14)
+(14, 4), (14, 11), -- Akční RPG, Interaktivní příběh
+-- Starfield (15)
+(15, 4), (15, 6), (15, 9); -- Akční RPG, Sandbox RPG, Sandbox
