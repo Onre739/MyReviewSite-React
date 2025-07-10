@@ -58,7 +58,7 @@ function Home() {
 
         <div className="card-body">
           <div className="row">
-            <div className="col-12 col-lg-4 mb-3 mb-lg-0">
+            <div className="col-12 col-lg-4 mb-3">
               <News vars={vars} setCurrentNewIndex={setCurrentNewIndex} ></News>
             </div>
             <div className="col-12 col-lg-8">

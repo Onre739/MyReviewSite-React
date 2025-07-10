@@ -23,3 +23,49 @@ export interface VarsState {
   newsPageSize: number;
   gameReviewsPageSize: number;
 }
+
+export type gameReviewType = {
+  id: number;
+  numerical_rev: number;
+  written_rev: string;
+  recommendation: boolean | null;
+  time: string; // ISO datetime string
+
+  game_platform: {
+    id: number;
+    release_date: string; // ISO date string
+
+    game: {
+      id: number;
+      name: string;
+      release_date: string;
+      description: string;
+      series: string;
+      publisher: string;
+
+      developer: {
+        id: number;
+        name: string;
+        owner_company: string;
+        headquartes: string;
+        founded: string; // ISO date string
+      };
+
+      img_path: string;
+    };
+
+    platform: {
+      id: number;
+      name: string;
+    };
+  };
+
+  user: {
+    id: number;
+    email: string;
+    name: string;
+    password: string;
+    role: string;
+    last_update: string; // ISO datetime string
+  };
+};
