@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Header() {
+  const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+
   return (
     <div className="card-header p-0">
       {/* ----------------- LOGO -----------------*/}
@@ -20,11 +25,14 @@ function Header() {
         <div className="d-flex gap-1">
           <div className="input-group">
             <input
+              id="search-input"
               type="text"
               className="form-control"
               placeholder="Vyhledávání"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             ></input>
-            <button className="btn btn-success">
+            <button onClick={() => navigate(`/search?string=${encodeURIComponent(search)}`)} className="btn btn-success">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"

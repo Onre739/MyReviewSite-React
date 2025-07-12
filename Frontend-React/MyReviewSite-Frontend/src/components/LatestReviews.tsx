@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type {VarsState, gameReviewType} from "../customTypes.tsx";
+import type {HomeVarsType, gameReviewType} from "../customTypes.tsx";
 import LatestReviewItem from "./LatestReviewItem.tsx";
 
 interface LatestReviewsProps {
-  vars: VarsState;
+  vars: HomeVarsType;
 };
 
 function LatestReviews( {vars} : LatestReviewsProps) {

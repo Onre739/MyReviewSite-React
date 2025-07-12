@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type {VarsState, setNewVarsType} from "../customTypes.tsx";
+import type {HomeVarsType, setNewVarsType} from "../customTypes.tsx";
 
 interface NewsProps {
-  vars: VarsState;
+  vars: HomeVarsType;
   setCurrentNewIndex: (index: number) => void;
 };
 
@@ -29,8 +29,8 @@ function News({ vars, setCurrentNewIndex }: NewsProps) {
       </div>
 
       <div className="card-body">
-        <Link to="/game" className="text-decoration-none">
-          <h6 id="news-title" className="hover-green">{actualNew.title}</h6>
+        <Link to="/game" className="hover-green">
+          <h6 id="news-title">{actualNew.title}</h6>
         </Link>
 
         <div className="d-flex justify-content-center mb-2">
@@ -43,13 +43,13 @@ function News({ vars, setCurrentNewIndex }: NewsProps) {
   );
 }
 
-function incBtn(vars: VarsState, setCurrentNewIndex: (index: number) => void){
+function incBtn(vars: HomeVarsType, setCurrentNewIndex: (index: number) => void){
   setCurrentNewIndex(
     (vars.currentNewIndex + 1) % 3
   )
 }
 
-function decBtn(vars: VarsState, setCurrentNewIndex: (index: number) => void){
+function decBtn(vars: HomeVarsType, setCurrentNewIndex: (index: number) => void){
   setCurrentNewIndex(
     (vars.currentNewIndex - 1) < 0 ? 2 : vars.currentNewIndex - 1
   )

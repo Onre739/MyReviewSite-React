@@ -2,7 +2,7 @@ import { Chart } from "chart.js";
 
 export type setNewVarsType = (id: string, value: any) => void;
 
-export interface VarsState {
+export interface HomeVarsType {
   myChart: Chart | null; // můžeš nahradit konkrétním typem, např. Chart | null, pokud používáš Chart.js
   chartColor: string[];
   chartData: number[][]; // pole číselných polí
@@ -22,6 +22,13 @@ export interface VarsState {
   gameReviews: any | null; // opět můžeš konkretizovat
   newsPageSize: number;
   gameReviewsPageSize: number;
+}
+
+export interface SearchVarsType {
+  games: Game[] | null;
+  page: number;
+  maxPage: number;
+  pageSize: number;
 }
 
 export type gameReviewType = {
@@ -68,4 +75,23 @@ export type gameReviewType = {
     role: string;
     last_update: string; // ISO datetime string
   };
+};
+
+export type Developer = {
+  id: number;
+  name: string;
+  owner_company: string;
+  headquartes: string;
+  founded: string; // ISO datum jako string (např. "1970-01-01")
+};
+
+export type Game = {
+  id: number;
+  name: string;
+  release_date: string; // ISO datum jako string
+  description: string;
+  series: string;
+  publisher: string;
+  developer: Developer;
+  img_path: string;
 };

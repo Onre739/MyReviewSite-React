@@ -48,6 +48,7 @@
 
 .hover-green {
   color: black;
+  text-decoration: none;
 }
 
 .hover-green:hover {
@@ -98,4 +99,21 @@
   --color-green: #198754;
   --color-darker-green: #157347;
   --color-darkest-green: #105535;
+}
+
+/* -------------------- SEARCH -------------------- */
+#search-item-img {
+  max-height: 90px;
+}
+
+/* #search-item-description-box {
+  max-height: 6rem;
+  overflow-y: hidden;
+} */
+
+#search-item-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

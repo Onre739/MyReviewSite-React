@@ -5,7 +5,7 @@ import Graph from "../components/Graph.tsx";
 import LatestReviews from "../components/LatestReviews.tsx";
 
 import { useEffect, useState } from "react";
-import type {VarsState, setNewVarsType} from "../customTypes.tsx";
+import type {HomeVarsType, setNewVarsType} from "../customTypes.tsx";
 
 function Home() {
   // Objekt pro globální proměnné
@@ -31,7 +31,7 @@ function Home() {
   };
   
   // Nastavení objektu jako State
-  const [vars, setVars] = useState<VarsState>(vars_obj);
+  const [vars, setVars] = useState<HomeVarsType>(vars_obj);
   
   // Arrow funkce pro změnu nového stavu
   const setNewVars:setNewVarsType = (id: string, value: any) => {
@@ -78,7 +78,7 @@ function Home() {
   );
 }
 
-async function getData(vars: VarsState, setNewVars: setNewVarsType) {
+async function getData(vars: HomeVarsType, setNewVars: setNewVarsType) {
   const url = `/api/index?newsPage=${0}
     &newsPageSize=${vars.newsPageSize}
     &gameReviewPage=${0}
