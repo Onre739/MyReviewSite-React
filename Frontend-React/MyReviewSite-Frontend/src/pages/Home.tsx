@@ -9,7 +9,7 @@ import type {HomeVarsType, setNewVarsType} from "../customTypes.tsx";
 
 function Home() {
   // Objekt pro globální proměnné
-  var vars_obj = {
+  var vars_obj: HomeVarsType = {
     myChart: null,
     chartColor: ["rgb(17, 120, 44)", "rgb(255, 0, 102)", "rgb(0, 102, 255)"],
     chartData: [[], [], []],

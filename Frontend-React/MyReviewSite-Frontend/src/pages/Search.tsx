@@ -11,7 +11,7 @@ function search() {
   var params = new URLSearchParams(location.search);
   const string = params.get("string") ?? "";
 
-  var vars_obj = {
+  var vars_obj: SearchVarsType = {
     games: [],
     page: 0,
   
@@ -35,8 +35,6 @@ function search() {
       page: 0,
       maxPage: 1,
     };
-
-    setVars(newVars);
 
     getData(newVars, setVars, string);
 

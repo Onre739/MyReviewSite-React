@@ -31,52 +31,17 @@ export interface SearchVarsType {
   pageSize: number;
 }
 
-export type gameReviewType = {
-  id: number;
-  numerical_rev: number;
-  written_rev: string;
-  recommendation: boolean | null;
-  time: string; // ISO datetime string
+export interface GameVarsType {
+  game: Game | null;
+  gameReviews: GameReview[];
+  platforms: Platform[];
+  subGenres: SubGenre[];
+  page: number;
+  maxPage: number;
+  pageSize: number;
+}
 
-  game_platform: {
-    id: number;
-    release_date: string; // ISO date string
-
-    game: {
-      id: number;
-      name: string;
-      release_date: string;
-      description: string;
-      series: string;
-      publisher: string;
-
-      developer: {
-        id: number;
-        name: string;
-        owner_company: string;
-        headquartes: string;
-        founded: string; // ISO date string
-      };
-
-      img_path: string;
-    };
-
-    platform: {
-      id: number;
-      name: string;
-    };
-  };
-
-  user: {
-    id: number;
-    email: string;
-    name: string;
-    password: string;
-    role: string;
-    last_update: string; // ISO datetime string
-  };
-};
-
+// ---------------------------------------------------------------
 export type Developer = {
   id: number;
   name: string;
@@ -94,4 +59,54 @@ export type Game = {
   publisher: string;
   developer: Developer;
   img_path: string;
+};
+
+export type Platform = {
+  id: number;
+  name: string;
+};
+
+export type Genre = {
+  id: number;
+  name: string;
+};
+
+export type SubGenre = {
+  id: number;
+  name: string;
+  genre: Genre;
+};
+
+export type GamePlatform = {
+  id: number;
+  release_date: string;
+  game: Game;
+  platform: Platform;
+};
+
+export type User = {
+  id: number;
+  email: string;
+  name: string;
+  password: string;
+  role: string;
+  last_update: string; // ISO date string
+};
+
+export type GameReview = {
+  id: number;
+  numerical_rev: number;
+  written_rev: string;
+  recommendation: boolean | null;
+  time: string; // ISO date string
+  game_platform: GamePlatform;
+  user: User;
+};
+
+export type SearchResponse = {
+  game: Game;
+  platforms: Platform[];
+  subGenres: SubGenre[];
+  gameReviews: GameReview[];
+  totalPages: number;
 };

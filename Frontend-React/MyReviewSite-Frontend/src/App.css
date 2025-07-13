@@ -106,14 +106,31 @@
   max-height: 90px;
 }
 
-/* #search-item-description-box {
-  max-height: 6rem;
-  overflow-y: hidden;
-} */
-
 #search-item-description {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* -------------------- GAME -------------------- */
+#game-platforms-list,
+#game-subGenres-list {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: auto;
+}
+
+#game-img {
+  max-height: 200px;
+}
+
+#game-description {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#game-make-review-btn {
+  height: fit-content;
 }
