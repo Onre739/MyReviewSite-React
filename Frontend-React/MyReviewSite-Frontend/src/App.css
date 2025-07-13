@@ -39,6 +39,12 @@
 
 /* ------------------------------------------------------- */
 
+:root {
+  --color-green: #198754;
+  --color-darker-green: #157347;
+  --color-darkest-green: #105535;
+}
+
 /* -------------------- GLOBAL -------------------- */
 
 .hover-inc:hover {
@@ -67,7 +73,21 @@
   justify-content: center;
 }
 
-/* ------------------------------------------------ */
+#game-review-num-rev-bar {
+  width: 80px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+#game-review-content-box {
+  height: 6rem;
+  overflow-y: auto;
+
+  /* display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow-y: auto; */
+}
 
 /* -------------------- HOME -------------------- */
 
@@ -80,25 +100,6 @@
 #news-img {
   max-width: 100%;
   max-height: 160px;
-}
-
-/* LATEST REVIEWS */
-#game-review-num-rev-bar {
-  width: 80px;
-  height: 20px;
-  border: 1px solid black;
-}
-
-#game-review-content-box {
-  height: 6rem;
-  overflow-y: auto;
-}
-
-
-:root {
-  --color-green: #198754;
-  --color-darker-green: #157347;
-  --color-darkest-green: #105535;
 }
 
 /* -------------------- SEARCH -------------------- */

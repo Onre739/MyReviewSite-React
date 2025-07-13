@@ -22,11 +22,6 @@ function search() {
   // Nastavení objektu jako State
   const [vars, setVars] = useState<SearchVarsType>(vars_obj);
   
-  // Zisk dat z API, spustí se 1 při spuštění
-  useEffect(() => {
-    getData(vars, setVars, string);
-  }, []);
-  
   // Pokud dojde ke změně parametru URL pro vyhledávání
   useEffect(() => {
     const newVars = {

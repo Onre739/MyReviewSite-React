@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import type {GameReview} from "../customTypes.tsx";
 
-interface LatestReviewItemProps {
+interface GameReviewItemProps {
   gameReview: GameReview;
 };
 
-function LatestReviewItem( {gameReview}: LatestReviewItemProps) {
+function GameReviewItem( {gameReview}: GameReviewItemProps) {
     let svg = null;
 
     if(gameReview.recommendation == true){
@@ -41,23 +41,12 @@ function LatestReviewItem( {gameReview}: LatestReviewItemProps) {
                     </div>
                 </div>
 
-                <div id="game-review-content-box" className="me-3 ms-3 w-100">
+                <div id="game-review-content-box" className="ps-3 w-100">
                     <div id="game-review-content">{gameReview.written_rev}</div>
                 </div>
-                
-                <Link to={"/game?id=" + gameReview.game_platform.game.id} className="ps-3 border-start border-secondary-subtle">
-                    <img 
-                        id="game-review-img" 
-                        className="hover-inc"
-                        src={gameReview.game_platform.game.img_path}
-                        height={"90px"}
-                        alt="Logo">
-                    </img>
-                </Link>
-
             </div>
         </li>
     )
 }
 
-export default LatestReviewItem;
+export default GameReviewItem;

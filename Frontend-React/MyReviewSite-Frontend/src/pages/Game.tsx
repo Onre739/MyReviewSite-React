@@ -1,10 +1,10 @@
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
-import SearchItem from "../components/SearchItem.tsx";
+import GameReviewItem from "../components/GameReviewItem.tsx";
 
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type {GameVarsType, setNewVarsType, Game} from "../customTypes.tsx";
+import type {GameVarsType, GameReview} from "../customTypes.tsx";
 
 function game() {
   var location =  useLocation();
@@ -23,11 +23,6 @@ function game() {
 
   // Nastavení objektu jako State
   const [vars, setVars] = useState<GameVarsType>(vars_obj);
-
-  // Zisk dat z API, spustí se 1 při spuštění
-  useEffect(() => {
-    getData(vars, setVars, id);
-  }, []);
 
   // Pokud dojde ke změně parametru URL pro vyhledávání
   useEffect(() => {
@@ -126,11 +121,13 @@ function game() {
 
             <div className="card-body">
               <ul className="list-group list-group-flush">
-                
+                {vars.gameReviews.map((gameReview: GameReview) => {
+                        return <GameReviewItem gameReview={gameReview}></GameReviewItem>
+                    })}
               </ul>
-              <div id="search-nothing-div" className="alert alert-secondary d-none" role="alert">Nothing found :/</div>
+              <div id="game-nothing-div" className="alert alert-secondary d-none" role="alert">Nothing found :/</div>
               <div className="d-flex justify-content-center">
-                <button id="search-more-btn" onClick={loadMore} className={checkBtnVisibility ? "btn btn-success btn-sm d-block" : "btn btn-success btn-sm d-none"}>Load More</button>
+                <button id="game-more-btn" onClick={loadMore} className={checkBtnVisibility ? "btn btn-success btn-sm d-block" : "btn btn-success btn-sm d-none"}>Load More</button>
               </div>
             </div>
 
@@ -162,9 +159,7 @@ async function getData(vars: GameVarsType, setVars: any, id: string){
         gameReviews: [...(vars.gameReviews ?? []), ...(data.gameReviews ?? [])], // Append nových recenzí
         platforms: data.platforms,
         subGenres: data.subGenres,
-        page: data.page,
         maxPage: data.totalPages,
-        pageSize: data.pageSize,
       }
 
       setVars(newVars);
