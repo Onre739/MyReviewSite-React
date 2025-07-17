@@ -1,10 +1,46 @@
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Header() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
+  const [logged, setLogged] = useState(false);
+  const [userDetails, setUserDetails] = useState<any>(null);
+
+  var location =  useLocation();
+
+  useEffect(() => {
+    const check = async () => {
+      const data = await checkAuth();
+      if (data) {
+        setLogged(true);
+        setUserDetails(data.userDetails);
+      }
+    };
+
+    check();
+  }, [location]);
+
+  const logOut = async () => {
+    try {
+      const response = await fetch("/api/logout", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+
+      if (response.ok) {
+        setLogged(false);
+      } else {
+        console.error("Logout failed with status:", response.status);
+      }
+    } catch (error) {
+      console.error("Network error during logout:", error);
+    }
+  };
 
   return (
     <div className="card-header p-0">
@@ -84,7 +120,7 @@ function Header() {
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
                 ></path>
               </svg>
-              <div className="d-none d-md-block">My Account</div>
+              <div className="d-none d-md-block">{logged ?  userDetails?.fullName : "My Account"}</div>
             </button>
             <ul className="dropdown-menu">
               <li>
@@ -106,9 +142,9 @@ function Header() {
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <a className="dropdown-item" href="">
-                  Logout
-                </a>
+                <Link className="dropdown-item" to="/" onClick={logOut}>
+                  Log out
+                </Link>
               </li>
             </ul>
           </div>
@@ -116,6 +152,31 @@ function Header() {
       </div>
     </div>
   );
+}
+
+async function checkAuth() {
+  try {
+      const response = await fetch('/api/auth/check', {
+          credentials: 'include' // Posílá cookies (JSESSIONID)
+      });
+      
+      if (!response.ok) throw new Error("Auth check failed");
+      
+      const data = await response.json();
+      
+      if (data.authenticated) {
+          console.log("✅ Přihlášen jako:", data.username);
+          return data;
+
+      } else {
+          console.log("❌ Není přihlášen");
+          return null
+      }
+      
+  } catch (error) {
+      console.error("Chyba při kontrole přihlášení:", error);
+      return null;
+  }
 }
 
 export default Header;

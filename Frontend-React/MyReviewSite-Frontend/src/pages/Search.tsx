@@ -62,7 +62,7 @@ function search() {
             <div className="card-body">
               <ul className="list-group list-group-flush">
                 {vars.games?.map((game: Game) => {
-                  return <SearchItem game={game}></SearchItem>
+                  return <SearchItem key={game.id} game={game}></SearchItem>
                 })}
               </ul>
               <div id="search-nothing-div" className="alert alert-secondary d-none" role="alert">Nothing found :/</div>

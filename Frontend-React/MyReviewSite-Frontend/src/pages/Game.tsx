@@ -90,7 +90,7 @@ function game() {
                       <h6 className="dark-green">Platforms:</h6>
                       <ul id="game-platforms-list" className="list-group list-group-flush">
                         {vars.platforms.map((platform) => { 
-                          return <li className="list-group-item">{platform.name}</li>
+                          return <li key={platform.id} className="list-group-item">{platform.name}</li>
                         })}
                       </ul>
                     </div>
@@ -98,7 +98,7 @@ function game() {
                       <h6 className="dark-green ps-3">Genres:</h6>
                       <ul id="game-subGenres-list" className="list-group list-group-flush border-start border-secondary-subtle ps-3">
                         {vars.subGenres.map((genre) => { 
-                          return <li className="list-group-item">{genre.name}</li>
+                          return <li key={genre.id} className="list-group-item">{genre.name}</li>
                         })}
                       </ul>
                     </div>
@@ -122,7 +122,7 @@ function game() {
             <div className="card-body">
               <ul className="list-group list-group-flush">
                 {vars.gameReviews.map((gameReview: GameReview) => {
-                        return <GameReviewItem gameReview={gameReview}></GameReviewItem>
+                        return <GameReviewItem key={gameReview.id} gameReview={gameReview}></GameReviewItem>
                     })}
               </ul>
               <div id="game-nothing-div" className="alert alert-secondary d-none" role="alert">Nothing found :/</div>

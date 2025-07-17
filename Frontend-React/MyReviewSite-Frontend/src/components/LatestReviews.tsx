@@ -19,7 +19,7 @@ function LatestReviews( {vars} : LatestReviewsProps) {
             <div className="card-body">
                 <ul className="list-group list-group-flush">
                     {vars.gameReviews.map((gameReview: GameReview) => {
-                        return <LatestReviewItem gameReview={gameReview}></LatestReviewItem>
+                        return <LatestReviewItem key={gameReview.id} gameReview={gameReview}></LatestReviewItem>
                     })}
                 </ul>
             </div>
