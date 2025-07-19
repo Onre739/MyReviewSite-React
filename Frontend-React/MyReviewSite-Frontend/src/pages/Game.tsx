@@ -1,12 +1,17 @@
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 import GameReviewItem from "../components/GameReviewItem.tsx";
-
+import MakeRev from "../components/MakeRev.tsx";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import type {GameVarsType, GameReview} from "../customTypes.tsx";
 
-function game() {
+interface GameProps {
+  auth: boolean;
+  userDetails?: any;
+}
+
+function game({auth, userDetails}: GameProps) {
   var location =  useLocation();
   var params = new URLSearchParams(location.search);
   const id = params.get("id") ?? "";
@@ -19,6 +24,7 @@ function game() {
     page: 0,
     maxPage: 1,
     pageSize: 5,
+    makingRev: false,
   };
 
   // Nastavení objektu jako State
@@ -49,12 +55,32 @@ function game() {
 
     getData(newVars, setVars, id);
   };
-  
+
+  // Callback pro tvorbu recenzí
+  const goMakeRev = () => {
+    const newVars = {
+      ...vars,
+      makingRev: true,
+    };
+
+    setVars(newVars);
+  };
+
+  // Callback pro list recenzí
+  const goSeeRev = () => {
+    const newVars = {
+      ...vars,
+      makingRev: false,
+    };
+
+    setVars(newVars);
+  };
+
   return (
     <>
       
       <div className="card main-card mt-3">
-        <Header></Header>
+        <Header auth={auth} userDetails={userDetails}></Header>
 
         <div className="card-body">
 
@@ -68,7 +94,7 @@ function game() {
                 <img id="game-img" className="me-3" src={vars.game?.img_path}></img>
                 <div className="d-flex justify-content-between align-items-center w-100">
                   <div>
-                    <h5 id="game-name"></h5>
+                    <h5 id="game-name">{vars.game?.name}</h5>
                     <div className="d-flex gap-1">
                       <div>
                         <h6 className="dark-green">Developer:</h6>
@@ -106,18 +132,19 @@ function game() {
                 </div>
               </div>
 
-              <div className="d-flex justify-content-between gap-3">
-                <div id="game-description">{vars.game?.description}</div>
-                <button id="game-make-review-btn" className="btn btn-success text-nowrap">Make Review</button>
-              </div>
+              <div id="game-description">{vars.game?.description}</div>
             </div>
           
           </div>
 
           {/* ----------- RECENZE ----------- */}
-          <div className="card w-100">
+          <div className={vars.makingRev ? "card w-100 d-none" : "card w-100"}>
             
-            <h5 className="card-header">Reviews:</h5>
+            <div className="card-header d-flex justify-content-between">
+              <h5 className="">Reviews:</h5>
+              <button id="game-make-review-btn" disabled={!auth} className={vars.makingRev ? "d-none" : "btn btn-success btn-sm text-nowrap"} 
+                      onClick={goMakeRev}>Make Review</button>
+            </div>
 
             <div className="card-body">
               <ul className="list-group list-group-flush">
@@ -129,6 +156,21 @@ function game() {
               <div className="d-flex justify-content-center">
                 <button id="game-more-btn" onClick={loadMore} className={checkBtnVisibility ? "btn btn-success btn-sm d-block" : "btn btn-success btn-sm d-none"}>Load More</button>
               </div>
+            </div>
+
+          </div>
+
+          {/* ----------- TVORBA RECENZE ----------- */}
+          <div className={vars.makingRev ? "card w-100" : "card w-100 d-none"}>
+            
+            <div className="card-header d-flex justify-content-between">
+              <h5>Make a review:</h5>
+              <button id="game-make-review-btn" className={vars.makingRev ? "btn btn-success btn-sm text-nowrap" : "d-none"} onClick={goSeeRev}>Back to reviews</button>
+            </div>
+
+            <div className="card-body">
+              <MakeRev platforms={vars.platforms} auth={auth} userDetails={userDetails} game={vars.game}></MakeRev>
+            
             </div>
 
           </div>

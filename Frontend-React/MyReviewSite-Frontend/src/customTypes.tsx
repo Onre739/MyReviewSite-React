@@ -39,6 +39,7 @@ export interface GameVarsType {
   page: number;
   maxPage: number;
   pageSize: number;
+  makingRev: boolean;
 }
 
 // ---------------------------------------------------------------

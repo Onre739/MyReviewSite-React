@@ -2,25 +2,15 @@ import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-function Header() {
+interface HeaderProps {
+  auth: boolean;
+  userDetails?: any;
+}
+
+function Header({auth, userDetails}: HeaderProps) {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
-  const [logged, setLogged] = useState(false);
-  const [userDetails, setUserDetails] = useState<any>(null);
-
-  var location =  useLocation();
-
-  useEffect(() => {
-    const check = async () => {
-      const data = await checkAuth();
-      if (data) {
-        setLogged(true);
-        setUserDetails(data.userDetails);
-      }
-    };
-
-    check();
-  }, [location]);
+  const location = useLocation();
 
   const logOut = async () => {
     try {
@@ -33,7 +23,7 @@ function Header() {
       });
 
       if (response.ok) {
-        setLogged(false);
+        console.log("Successfully Loged out !");
       } else {
         console.error("Logout failed with status:", response.status);
       }
@@ -120,21 +110,21 @@ function Header() {
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
                 ></path>
               </svg>
-              <div className="d-none d-md-block">{logged ?  userDetails?.fullName : "My Account"}</div>
+              <div className="d-none d-md-block">{auth ?  userDetails?.fullName : "My Account"}</div>
             </button>
             <ul className="dropdown-menu">
               <li>
-                <Link className="dropdown-item" to="/login">
+                <Link className="dropdown-item" to={!auth ? "/login" : location.pathname + location.search} style={auth ? {textDecoration: "line-through"} : {textDecoration: "none"}}>
                   Login
                 </Link>
               </li>
               <li>
-                <a className="dropdown-item" href="">
+                <a className="dropdown-item" href="" style={{textDecoration: "line-through"}}>
                   Sign up
                 </a>
               </li>
               <li>
-                <a className="dropdown-item" href="">
+                <a className="dropdown-item" href="" style={{textDecoration: "line-through"}}>
                   Forgotten password
                 </a>
               </li>
@@ -142,7 +132,7 @@ function Header() {
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <Link className="dropdown-item" to="/" onClick={logOut}>
+                <Link className="dropdown-item" to={auth ? "/" : location.pathname + location.search} onClick={logOut}  style={!auth ? {textDecoration: "line-through"} : {textDecoration: "none"}}>
                   Log out
                 </Link>
               </li>
@@ -152,31 +142,6 @@ function Header() {
       </div>
     </div>
   );
-}
-
-async function checkAuth() {
-  try {
-      const response = await fetch('/api/auth/check', {
-          credentials: 'include' // Posílá cookies (JSESSIONID)
-      });
-      
-      if (!response.ok) throw new Error("Auth check failed");
-      
-      const data = await response.json();
-      
-      if (data.authenticated) {
-          console.log("✅ Přihlášen jako:", data.username);
-          return data;
-
-      } else {
-          console.log("❌ Není přihlášen");
-          return null
-      }
-      
-  } catch (error) {
-      console.error("Chyba při kontrole přihlášení:", error);
-      return null;
-  }
 }
 
 export default Header;

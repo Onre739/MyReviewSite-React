@@ -5,8 +5,12 @@ import SearchItem from "../components/SearchItem.tsx";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+interface LoginProps {
+  auth: boolean;
+  userDetails?: any;
+}
 
-function Login() {
+function Login({auth, userDetails}: LoginProps) {
   var location =  useLocation();
   var params = new URLSearchParams(location.search);
   const navigate = useNavigate();
@@ -41,7 +45,7 @@ function Login() {
   return (
     <>
       <div className="card main-card mt-3 w-auto">
-        <Header></Header>
+        <Header auth={auth} userDetails={userDetails}></Header>
 
         <div className="card-body">
 

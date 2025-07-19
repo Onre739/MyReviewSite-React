@@ -7,7 +7,12 @@ import LatestReviews from "../components/LatestReviews.tsx";
 import { useEffect, useState } from "react";
 import type {HomeVarsType, setNewVarsType} from "../customTypes.tsx";
 
-function Home() {
+interface HomeProps {
+  auth: boolean;
+  userDetails?: any;
+}
+
+function Home({auth, userDetails}: HomeProps) {
   // Objekt pro globální proměnné
   var vars_obj: HomeVarsType = {
     myChart: null,
@@ -54,7 +59,7 @@ function Home() {
   return (
     <>
       <div className="card main-card mt-3">
-        <Header></Header>
+        <Header auth={auth} userDetails={userDetails}></Header>
 
         <div className="card-body">
           <div className="row">

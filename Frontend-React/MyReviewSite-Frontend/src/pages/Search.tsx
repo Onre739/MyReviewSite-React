@@ -6,7 +6,12 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import type {SearchVarsType, setNewVarsType, Game} from "../customTypes.tsx";
 
-function search() {
+interface SearchProps {
+  auth: boolean;
+  userDetails?: any;
+}
+
+function search({auth, userDetails}: SearchProps) {
   var location =  useLocation();
   var params = new URLSearchParams(location.search);
   const string = params.get("string") ?? "";
@@ -52,7 +57,7 @@ function search() {
   return (
     <>
       <div className="card main-card mt-3">
-        <Header></Header>
+        <Header auth={auth} userDetails={userDetails}></Header>
 
         <div className="card-body">
 

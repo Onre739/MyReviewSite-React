@@ -1,12 +1,17 @@
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 
-function About() {
+interface AboutProps {
+  auth: boolean;
+  userDetails?: any;
+}
+
+function About({auth, userDetails}: AboutProps) {
   // Návrat
   return (
     <>
       <div className="card main-card mt-3">
-        <Header></Header>
+        <Header auth={auth} userDetails={userDetails}></Header>
 
         <div className="card-body">
           <div className="card">
