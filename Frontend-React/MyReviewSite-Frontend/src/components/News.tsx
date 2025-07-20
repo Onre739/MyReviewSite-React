@@ -4,18 +4,18 @@ import type {HomeVarsType, setNewVarsType} from "../customTypes.tsx";
 
 interface NewsProps {
   vars: HomeVarsType;
-  setCurrentNewIndex: (index: number) => void;
+  setVars: any;
 };
 
-function News({ vars, setCurrentNewIndex }: NewsProps) {
+function News({ vars, setVars }: NewsProps) {
   if (!vars.news || vars.news.length === 0) {
     return <div>Načítání novinek...</div>;
   }
 
   let actualNew = vars.news[vars.currentNewIndex];
 
-  const handleLeftClick = () => incBtn(vars, setCurrentNewIndex);
-  const handleRightClick = () => decBtn(vars, setCurrentNewIndex);
+  const handleLeftClick = () => incBtn(vars, setVars);
+  const handleRightClick = () => decBtn(vars, setVars);
 
   return (
     <div className="card w-100 news-card">
@@ -43,17 +43,18 @@ function News({ vars, setCurrentNewIndex }: NewsProps) {
   );
 }
 
-function incBtn(vars: HomeVarsType, setCurrentNewIndex: (index: number) => void){
-  setCurrentNewIndex(
-    (vars.currentNewIndex + 1) % 3
-  )
+function incBtn(vars: HomeVarsType, setVars: any){
+  setVars({
+    ...vars,
+    currentNewIndex: (vars.currentNewIndex + 1) % 3,
+  });
 }
 
-function decBtn(vars: HomeVarsType, setCurrentNewIndex: (index: number) => void){
-  setCurrentNewIndex(
-    (vars.currentNewIndex - 1) < 0 ? 2 : vars.currentNewIndex - 1
-  )
+function decBtn(vars: HomeVarsType, setVars: any){
+  setVars({
+    ...vars,
+    currentNewIndex: (vars.currentNewIndex - 1) < 0 ? 2 : vars.currentNewIndex - 1,
+  });
 }
-
 
 export default News;

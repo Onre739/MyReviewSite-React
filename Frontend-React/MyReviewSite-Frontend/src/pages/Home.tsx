@@ -15,14 +15,6 @@ interface HomeProps {
 function Home({auth, userDetails}: HomeProps) {
   // Objekt pro globální proměnné
   var vars_obj: HomeVarsType = {
-    myChart: null,
-    chartColor: ["rgb(17, 120, 44)", "rgb(255, 0, 102)", "rgb(0, 102, 255)"],
-    chartData: [[], [], []],
-    labels: [[], [], []],
-    platformNames: ["PC", "PlayStation 5", "Xbox Series X"],
-    currentChart: 0,
-    chartsNum: 3,
-
     graphGameId: 2,
     graphPlatformId1: 1,
     graphPlatformId2: 2,
@@ -33,28 +25,19 @@ function Home({auth, userDetails}: HomeProps) {
     gameReviews: null,
     newsPageSize: 3,
     gameReviewsPageSize: 4,
+
+    graphReviews: [null, null, null],
   };
   
   // Nastavení objektu jako State
   const [vars, setVars] = useState<HomeVarsType>(vars_obj);
   
-  // Arrow funkce pro změnu nového stavu
-  const setNewVars:setNewVarsType = (id: string, value: any) => {
-    setVars(prev => ({
-      ...prev,
-      [id]: value
-    }));
-  };
-  
   // Zisk dat z API, spustí se 1 při spuštění
   useEffect(() => {
     console.log("Getting data");
-    getData(vars, setNewVars);
+    getData(vars, setVars);
   }, []);
 
-  // Funkce pro potomky
-  const setCurrentNewIndex = (value: number) => {setNewVars("currentNewIndex", value)};
-  
   // Návrat
   return (
     <>
@@ -64,10 +47,10 @@ function Home({auth, userDetails}: HomeProps) {
         <div className="card-body">
           <div className="row">
             <div className="col-12 col-lg-4 mb-3">
-              <News vars={vars} setCurrentNewIndex={setCurrentNewIndex} ></News>
+              <News vars={vars} setVars={setVars} ></News>
             </div>
-            <div className="col-12 col-lg-8">
-              <Graph></Graph>
+            <div className="col-12 col-lg-8 mb-3">              
+              <Graph gameReviews1={vars.graphReviews[0]} gameReviews2={vars.graphReviews[1]} gameReviews3={vars.graphReviews[2]}></Graph>
             </div>
           </div>
           <div className="row">
@@ -83,7 +66,7 @@ function Home({auth, userDetails}: HomeProps) {
   );
 }
 
-async function getData(vars: HomeVarsType, setNewVars: setNewVarsType) {
+async function getData(vars: HomeVarsType, setVars: any) {
   const url = `/api/index?newsPage=${0}
     &newsPageSize=${vars.newsPageSize}
     &gameReviewPage=${0}
@@ -99,35 +82,15 @@ async function getData(vars: HomeVarsType, setNewVars: setNewVarsType) {
     console.log("Aquired  data:");
     console.log(data);
 
-    // Novinky
-    setNewVars("news", data.news);
+    const newVars = {
+      ...vars,
+      news: data.news,
+      gameReviews: data.gameReviews,
+      graphReviews: [data.graphReviews1, data.graphReviews2, data.graphReviews3], 
+    }
 
-    // Nejnovější recenze
-    setNewVars("gameReviews", data.gameReviews);
+    setVars(newVars);
 
-    // Recenze pro graf
-    let chartData: any = [[],[],[]];
-    let labels: any = [[],[],[]];
-
-    data.graphReviews1.forEach(function (rev: any) {
-      chartData[0].push(rev.numerical_rev);
-      labels[0].push(rev.time.split("T")[0]);
-    });
-    
-
-    data.graphReviews2.forEach(function (rev: any) {
-      chartData[1].push(rev.numerical_rev);
-      labels[1].push(rev.time.split("T")[0]);
-    });
-
-    data.graphReviews3.forEach(function (rev: any) {
-      chartData[2].push(rev.numerical_rev);
-      labels[2].push(rev.time.split("T")[0]);
-    });
-
-    setNewVars("chartData", chartData);
-    setNewVars("labels", labels);
-    
   } catch (error) {
     console.error("Chyba při načítání dat:", error);
   }

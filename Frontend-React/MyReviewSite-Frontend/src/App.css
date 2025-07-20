@@ -102,6 +102,11 @@
   max-height: 160px;
 }
 
+/* GRAF */
+#graph-canvas-wrapper {
+  min-width: 610px;
+}
+
 /* -------------------- SEARCH -------------------- */
 #search-item-img {
   max-height: 90px;

@@ -88,9 +88,11 @@ async function sendReview(auth: boolean, userDetails: any, game: Game | null, na
     const platInput = document.getElementById('make-rev-platform') as HTMLSelectElement | null;
     const textInput = document.getElementById('make-rev-text') as HTMLTextAreaElement | null;
 
-    var rec = null;
-    if (document.getElementById("make-rev-radio-rec")?.hasAttribute("checked")) rec = 1;
-    if (document.getElementById("make-rev-radio-not")?.hasAttribute("checked")) rec = 0;
+    const selected = document.querySelector('input[name="form-radio"]:checked');
+    let rec = null;
+
+    if (selected?.id === "make-rev-radio-rec") rec = 1;
+    else if (selected?.id === "make-rev-radio-not") rec = 0;
 
     const data = {
         user_mail: userDetails.email,
