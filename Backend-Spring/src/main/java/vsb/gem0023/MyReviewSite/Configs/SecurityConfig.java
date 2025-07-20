@@ -37,7 +37,9 @@ public class SecurityConfig {
                                 "/imgs/**",
                                 "/index.html",
                                 "/",
-                                "/static/**"
+                                "/static/**",
+                                "/**/*.js",
+                                "/**/*.css"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
@@ -59,6 +61,12 @@ public class SecurityConfig {
                         .deleteCookies("JSESSIONID")
                         .invalidateHttpSession(true)
                         .permitAll()
+                )
+                .exceptionHandling(exceptionHandling ->
+                        exceptionHandling
+                                .authenticationEntryPoint((request, response, authException) -> {
+                                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+                                })
                 );
 
         return http.build();
