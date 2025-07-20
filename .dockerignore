@@ -1,4 +1,5 @@
 node_modules
-frontend/node_modules
-target
-dist
+.git
+.gitignore
+Frontend-React/MyReviewSite-Frontend/node_modules
+Backend-Spring/target
