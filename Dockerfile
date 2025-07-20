@@ -12,9 +12,16 @@ COPY Backend-Spring/ ./
 
 RUN mvn clean package -DskipTests
 
+
 # === Final stage ===
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=backend-build /app/target/*.jar app.jar
+
+# Zkopíruj soubor databáze do obrazu
+COPY MyReviewSiteDB.db ./
+# Umožni zápis/čtení (v případě potřeby, např. SQLite)
+RUN chmod a+rw MyReviewSiteDB.db
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=prod"]
