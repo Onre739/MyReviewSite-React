@@ -5,7 +5,7 @@ COPY Frontend-React/MyReviewSite-Frontend/ .
 RUN npm install && npm run build
 
 # === Build Spring Boot backend ===
-FROM maven:3.9.3-eclipse-temurin-21 AS backend-build
+FROM maven:3.9.6-eclipse-temurin-21 AS backend-build
 WORKDIR /app
 
 COPY Backend-Spring/pom.xml .
