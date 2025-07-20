@@ -3,7 +3,7 @@ import Footer from "../components/Footer.tsx";
 import GameReviewItem from "../components/GameReviewItem.tsx";
 import MakeRev from "../components/MakeRev.tsx";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import type {GameVarsType, GameReview} from "../customTypes.tsx";
 
 interface GameProps {

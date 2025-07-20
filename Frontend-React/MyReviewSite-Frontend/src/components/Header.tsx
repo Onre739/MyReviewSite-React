@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface HeaderProps {
   auth: boolean;

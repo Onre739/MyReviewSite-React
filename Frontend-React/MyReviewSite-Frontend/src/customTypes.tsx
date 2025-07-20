@@ -1,5 +1,3 @@
-import { Chart } from "chart.js";
-
 export type setNewVarsType = (id: string, value: any) => void;
 
 export interface HomeVarsType {

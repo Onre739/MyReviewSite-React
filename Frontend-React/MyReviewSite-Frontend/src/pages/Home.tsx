@@ -5,7 +5,7 @@ import Graph from "../components/Graph.tsx";
 import LatestReviews from "../components/LatestReviews.tsx";
 
 import { useEffect, useState } from "react";
-import type {HomeVarsType, setNewVarsType} from "../customTypes.tsx";
+import type {HomeVarsType} from "../customTypes.tsx";
 
 interface HomeProps {
   auth: boolean;

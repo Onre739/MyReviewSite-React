@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import type {HomeVarsType, setNewVarsType} from "../customTypes.tsx";
+import type {HomeVarsType} from "../customTypes.tsx";
 
 interface NewsProps {
   vars: HomeVarsType;

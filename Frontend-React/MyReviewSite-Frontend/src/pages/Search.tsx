@@ -4,7 +4,7 @@ import SearchItem from "../components/SearchItem.tsx";
 
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type {SearchVarsType, setNewVarsType, Game} from "../customTypes.tsx";
+import type {SearchVarsType, Game} from "../customTypes.tsx";
 
 interface SearchProps {
   auth: boolean;

@@ -1,9 +1,8 @@
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
-import SearchItem from "../components/SearchItem.tsx";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface LoginProps {
   auth: boolean;
